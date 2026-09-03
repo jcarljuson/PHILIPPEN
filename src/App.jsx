@@ -36,7 +36,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="baybayin-bg min-h-screen flex flex-col">
+    <div className="baybayin-bg min-h-screen flex flex-col overflow-x-hidden">
       <BaybayinBackground />
       <Navbar onOpenDonation={() => setDonationModalOpen(true)} />
 
