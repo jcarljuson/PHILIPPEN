@@ -20,7 +20,7 @@ export default function Licenses() {
     <section id="licenses" className="py-20 bg-white border-b border-[#e0dbd2]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
           <p className="text-[11px] uppercase tracking-[0.15em] text-[#3d6b4f] font-medium mb-3">
             Official Accreditations
           </p>

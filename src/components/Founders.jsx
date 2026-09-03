@@ -10,7 +10,7 @@ export default function Founders() {
     <section id="founders" className="py-20 bg-[#f5f0e8]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         
-        <div className="max-w-2xl mb-14">
+        <div className="max-w-2xl mb-10 sm:mb-14">
           <p className="text-[11px] uppercase tracking-[0.15em] text-[#8b6914] font-medium mb-3">Founding Visionaries</p>
           <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#1a1a1a] mb-4">
             Meet the Founders
