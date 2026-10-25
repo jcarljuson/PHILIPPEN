@@ -38,7 +38,7 @@ SECOND: A. That the purpose or purposes for which such association is incorporat
       { id: 19, text: "To cooperate with the Confederation of National Community Based Forest and Natural Resources Management Peoples Organizations (CONFED) Inc. Affiliates and Barangay Bagong Silang Agrarian Farmers Association (BABASAFA) for the Food and Transport Terminal Establishment along Marcos Highway Purok II Talipapa Sampaloc, Tanay, Rizal." },
       { id: 20, text: "To coordinate and cooperate with ROTARY COMMUNITY CORPS, which was founded by Filipino Rotarians, headed by Rotary International Past President Matt Caparas in 1986 in consonance with the government thrust and to adopt a barrio program so that ROTARIANS can help to Community Based Forest Management Agreements Holders consisting of 1, 790 CBFM Peoples Organizations Nationwide and Agrarian Reform Beneficiaries." },
       { id: 21, text: "To cooperate and the ECOLOGICAL SOCIETY OF THE PHILIPPINES, INTEGRATED SIERRA MADRE AGRO-LIVESTOCK, MARKETING AND COMMUNITY MULTI-PURPOSE COOPERATION INC. AND ALLIED ORGANIZATIONS WITH SIMILAR PURPOSE." },
-      { id: 22, text: "To cooperate/coordinate with local and foreign NGO's, GO's, academes, party list organizations, and the STATE specially the Department of SOCIAL WELFARE AND DEVELOPMENT (DSWD) and the DEPARTMENT OF EDUCATION (DEPED) in establishing an Integrated Special Schools for Indigenous Peoples of the Philippines (ISSIPP) and putting up welfare funds for and in behalf of the Underprivileged Elderlies or Senior Citizens and to advocate the establishment of Retirement Communities conducive to their health recuperation, environment HUBS and parks for them and to advocate foreign and local support and understanding and/or participation FOR EVERYONE, AN INVITATION TO ALTERNATIVE PHILANTHROPY FOR PEOPLE AND ENVIRONMENT. GOD BLESS US ALL!!!" }
+      { id: 22, text: "To cooperate/coordinate with local and foreign NGO's, GO's, academes, party list organizations, and the STATE specially the Department of SOCIAL WELFARE AND DEVELOPMENT (DSWD) and the DEPARTMENT OF EDUCATION (DEPED) in establishing an Integrated Special Schools for Indigenous Peoples of the Philippines (ISSIPP) and putting up welfare funds for and in behalf of the Underprivileged Elderlies or Senior Citizens and to advocate the establishment of Retirement Communities conducive to their health recuperation, environment HUBS and community sanctuaries for them and to advocate foreign and local support and understanding and/or participation FOR EVERYONE, AN INVITATION TO ALTERNATIVE PHILANTHROPY FOR PEOPLE AND ENVIRONMENT. GOD BLESS US ALL!!!" }
     ],
     closing: `THANKS BE TO GOD, TO GOD BE THE GLORY
 
@@ -162,16 +162,16 @@ A one time one peso membership organization cash or non-cash donations shall be 
   branches: [
     {
       id: "qc-diliman",
-      name: "QC Diliman Headquarters & Philippine Tribal Park",
+      name: "QC National Coordinating Headquarters & Livelihood Center",
       region: "Metro Manila / National Capital Region",
       coords: [14.6549, 121.0647],
-      focus: "National Headquarters, IP Legal Aid, and Flagship Philippine Tribal Park Masterplan",
+      focus: "National Headquarters, IP Legal Aid, and Agricultural Livelihood Mechanization",
       lead: "Jcarl Juson & Leodegario Estrella",
-      address: "Diliman, Quezon City, Metro Manila, Philippines",
+      address: "Quezon City, Metro Manila, Philippines",
       isHQ: true,
       image: "https://images.unsplash.com/photo-1519999482648-25049ddd37b1?auto=format&fit=crop&w=800&q=80",
-      description: "Serves as the nerve center for PHILIPPEN's nationwide policy advocacy, legal aid coordination, and international partnerships. It houses the conceptual showcase for the Philippine Tribal Park project.",
-      keyProjects: ["Philippine Tribal Park Masterplan", "IP Legal Aid Desk", "National Youth Advocacy Hub"]
+      description: "Serves as the nerve center for PHILIPPEN's nationwide policy advocacy, legal aid coordination, and direct agricultural support initiatives for indigenous farming communities.",
+      keyProjects: ["Indigenous Agricultural Livelihoods", "IP Legal Aid Desk", "National Youth Advocacy Hub"]
     },
     {
       id: "pangasinan",
@@ -227,121 +227,9 @@ A one time one peso membership organization cash or non-cash donations shall be 
     }
   ],
 
-  // Philippine Tribal Park Showcase Project in QC Diliman
-  tribalPark: {
-    title: "Philippine Tribal Park (QC Diliman)",
-    subtitle: "A Vision for a Harmonious Society & Community-Supported Livelihoods",
-    overview: "Located in the heart of Quezon City (Diliman), the Philippine Tribal Park is a vision to create a harmonious society that helps Indigenous Peoples earn a daily living through a community-supported ecosystem. Please note: This project is still in the planning phase.",
-    status: "In Planning Phase",
-    targetOpening: "Q4 2027",
-    areaSize: "12.5 Hectares Planned Eco-Zone",
-    zones: [
-      {
-        id: "ethnobotanical-zone",
-        name: "Ethno-Botanical Native Tree & Medicinal Garden",
-        desc: "A living plant museum housing over 300 endemic Philippine flora, dipterocarp trees, and traditional medicinal plants curated by tribal healers.",
-        image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
-        highlights: ["300+ Endemic Native Plant Species", "Tribal Herbalist Guided Walks", "Native Tree Seed Bank Showcase"]
-      },
-      {
-        id: "cultural-pavilion",
-        name: "Ancestral Living Cultural Pavilion & Weaving Looms",
-        desc: "Authentic indigenous architectural structures (Ifugao Bale, Maranao Torogan, Mangyan Balay) handcrafted by master IP craftsmen using sustainable bamboo and rattan.",
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-        highlights: ["Living Artisan Workshops", "Traditional Backstrap Weaving Looms", "Authentic Vernacular Architecture"]
-      },
-      {
-        id: "learning-lab",
-        name: "Youth Indigenous Climate & Heritage Learning Lab",
-        desc: "Interactive digital lab featuring VR tours of ancestral domains, interactive legal land mapping exhibits, and climate resilience workshops for students.",
-        image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
-        highlights: ["VR Ancestral Domain Exploration", "3D GIS Boundary Mapping Station", "Student Eco-Ambassador Workshops"]
-      },
-      {
-        id: "fairtrade-market",
-        name: "Fair-Trade IP Craft & Farmers Marketplace",
-        desc: "Direct-to-consumer marketplace where indigenous farming cooperatives sell wild honey, heirloom rice, high-altitude coffee, handwoven textiles, and bamboo crafts.",
-        image: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=800&q=80",
-        highlights: ["100% Direct Profit to IP Cooperatives", "Certified Organic Wild Honey Tasting", "Handmade Indigenous Souvenirs"]
-      }
-    ]
-  },
 
-  // Photo Gallery Showcase Data
-  gallery: [
-    {
-      id: 1,
-      title: "Sierra Madre Ancestral Ridge",
-      category: "Ancestral Domain",
-      location: "Tanay, Rizal",
-      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80",
-      caption: "Misty morning over Dumagat ancestral domain in Sierra Madre."
-    },
-    {
-      id: 2,
-      title: "Traditional Textile Weaving",
-      category: "Indigenous Culture",
-      location: "Livelihood Hub",
-      image: "https://images.unsplash.com/photo-1606744888344-493238951221?auto=format&fit=crop&w=800&q=80",
-      caption: "Indigenous master weaver handcrafting traditional tribal patterns."
-    },
-    {
-      id: 3,
-      title: "Philippine Tribal Park Concept Render",
-      category: "Tribal Park",
-      location: "QC Diliman",
-      image: "/concept-render.jpg",
-      caption: "Living Cultural Pavilion masterplan preview for QC Diliman."
-    },
-    {
-      id: 4,
-      title: "Wild Honey Harvesting Cooperative",
-      category: "Livelihood",
-      location: "Tanay, Rizal",
-      image: "https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=800&q=80",
-      caption: "Sustainable forest wild honey extraction by IP gatherers."
-    },
-    {
-      id: 5,
-      title: "Hundred Islands Marine Patrol",
-      category: "Ancestral Domain",
-      location: "Alaminos, Pangasinan",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80",
-      caption: "Guardians conducting coral reef inspection in protected waters."
-    },
-    {
-      id: 6,
-      title: "Sama-Bajau Heritage Waters",
-      category: "Indigenous Culture",
-      location: "Tawi-Tawi Archipelago",
-      image: "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&w=800&q=80",
-      caption: "Crystal turquoise sanctuary in Tawi-Tawi supported by PHILIPPEN."
-    },
-    {
-      id: 7,
-      title: "Native Dipterocarp Nursery",
-      category: "Ancestral Domain",
-      location: "Pangasinan Hub",
-      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80",
-      caption: "Community seedbank growing native Philippine hardwood saplings."
-    },
-    {
-      id: 8,
-      title: "Ethnobotanical Herb Garden",
-      category: "Tribal Park",
-      location: "QC Diliman Showcase",
-      image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80",
-      caption: "Planned medicinal flora nursery layout for the QC Tribal Park."
-    },
-    {
-      id: 9,
-      title: "Women's Welfare & Township Organization",
-      category: "Women's Welfare",
-      location: "Sampaloc, Rizal",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
-      caption: "Empowering indigenous women through leadership, healthcare planning, and cooperative livelihood programs."
-    }
-  ],
+
+
 
   // Donation Tiers
   donationTiers: [
@@ -369,8 +257,8 @@ A one time one peso membership organization cash or non-cash donations shall be 
     {
       amount: 15000,
       currency: "PHP",
-      label: "Tribal Park Founder Club",
-      impact: "Sponsors 1 native tree pavilion section in the QC Diliman Philippine Tribal Park.",
+      label: "Communal Equipment Sponsor",
+      impact: "Sponsors 1 walking cultivator attachment set for an upland farming cluster.",
       popular: false
     }
   ],

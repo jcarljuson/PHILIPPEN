@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { orgData } from '../data/ngoData';
-import { MapPin, Trees, User, ArrowRight } from 'lucide-react';
+import { MapPin, Tractor, ArrowRight } from 'lucide-react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 
@@ -97,9 +97,9 @@ export default function BranchMap() {
                   ))}
                 </div>
                 {sel.id === 'qc-diliman' && (
-                  <a href="#tribal-park"
-                    className="w-full py-2.5 rounded-md bg-[#f0e6cc] border border-[#d9c98e] text-[#8b6914] text-xs font-medium flex items-center justify-center gap-2 hover:bg-[#ebe1c1] transition-colors">
-                    <Trees className="w-4 h-4" /> View Philippine Tribal Park Masterplan <ArrowRight className="w-3.5 h-3.5" />
+                  <a href="#equipment-pool"
+                    className="w-full py-2.5 rounded-md bg-[#e5efe9] border border-[#3d6b4f]/20 text-[#3d6b4f] text-xs font-medium flex items-center justify-center gap-2 hover:bg-[#d8e8dc] transition-colors">
+                    <Tractor className="w-4 h-4" /> View Agricultural Equipment Pool <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 )}
               </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { orgData } from '../data/ngoData';
 import FounderModal from './FounderModal';
-import { Users, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Founders() {
   const [selectedFounder, setSelectedFounder] = useState(null);

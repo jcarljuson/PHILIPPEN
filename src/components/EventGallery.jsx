@@ -24,7 +24,7 @@ const EventGallery = () => {
   }, [images.length]);
 
   return (
-    <section className="py-24 bg-[#e8e2d5]">
+    <section id="action" className="py-24 bg-[#e8e2d5] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-[#2d3a2a] mb-4 font-serif">In Action</h2>

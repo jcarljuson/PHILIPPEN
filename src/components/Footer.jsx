@@ -1,8 +1,8 @@
 import React from 'react';
 import { orgData } from '../data/ngoData';
-import { Shield, PhoneCall, MapPin, Heart, ArrowUp, Send } from 'lucide-react';
+import { PhoneCall, MapPin, Heart, ArrowUp, Send } from 'lucide-react';
 
-export default function Footer({ onOpenDonation }) {
+export default function Footer({ onOpenDonation, onOpenPartner }) {
   return (
     <footer className="bg-[#1a1a1a] text-[#a09888] relative z-10">
       
@@ -70,6 +70,15 @@ export default function Footer({ onOpenDonation }) {
               </div>
               <p className="text-xs text-white font-mono">+63 (02) 8920-PHIL</p>
             </div>
+
+            <button
+              type="button"
+              onClick={onOpenPartner || onOpenDonation}
+              className="w-full py-2 px-3 rounded-md bg-[#3d6b4f] hover:bg-[#2f5a40] text-white text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
+            >
+              <Heart className="w-3.5 h-3.5" />
+              <span>Sponsor Equipment / Donate</span>
+            </button>
 
             <div>
               <p className="text-xs text-[#a09888] mb-1.5">Subscribe to field updates</p>
