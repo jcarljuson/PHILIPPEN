@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -25,6 +25,7 @@ export default function App() {
   const [donationModalOpen, setDonationModalOpen] = useState(false);
   const [donationTab, setDonationTab] = useState('money'); // 'money' | 'machinery'
   const [charterModalOpen, setCharterModalOpen] = useState(false);
+  const lenisRef = useRef(null);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -32,6 +33,7 @@ export default function App() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    lenisRef.current = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -41,6 +43,21 @@ export default function App() {
     requestAnimationFrame(raf);
     return () => lenis.destroy();
   }, []);
+
+  const anyModalOpen = donationModalOpen || partnerModalOpen || charterModalOpen;
+
+  useEffect(() => {
+    if (anyModalOpen) {
+      lenisRef.current?.stop();
+      document.body.style.overflow = 'hidden';
+    } else {
+      lenisRef.current?.start();
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [anyModalOpen]);
 
   const handleOpenDonation = (tab = 'money') => {
     setDonationTab(typeof tab === 'string' ? tab : 'money');

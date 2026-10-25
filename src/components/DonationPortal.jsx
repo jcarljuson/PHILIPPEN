@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { orgData } from '../data/ngoData';
 import {
-  Heart,
   Sparkles,
   X,
   CheckCircle,
@@ -171,11 +170,28 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
     onClose();
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1a1a1a]/60 backdrop-blur-xs">
-      <div className="relative w-full max-w-lg bg-white border border-[#e0dbd2] rounded-xl p-6 sm:p-7 shadow-2xl max-h-[92vh] overflow-y-auto">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1a1a1a]/60 backdrop-blur-xs overscroll-contain"
+      data-lenis-prevent="true"
+    >
+      <div
+        className="relative w-full max-w-lg bg-white border border-[#e0dbd2] rounded-xl p-6 sm:p-7 shadow-2xl max-h-[92vh] overflow-y-auto overscroll-contain"
+        data-lenis-prevent="true"
+      >
         <button
           onClick={reset}
           className="absolute top-4 right-4 p-1.5 rounded-lg bg-[#f5f0e8] text-[#8a8078] hover:text-[#1a1a1a] transition-colors"
@@ -232,8 +248,14 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
         {activeTab === 'money' && !moneyDone && (
           <div>
             <div className="text-center mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#e5efe9] flex items-center justify-center mx-auto mb-2.5">
-                <Heart className="w-5 h-5 text-[#3d6b4f]" />
+              <div className="w-14 h-14 rounded-xl bg-[#faf7f1] border border-[#e0dbd2] flex items-center justify-center mx-auto mb-2.5 p-2 shadow-xs">
+                <img
+                  src="/logo-new.png"
+                  alt="PHILIPPEN Logo"
+                  className="w-full h-full object-contain mix-blend-multiply"
+                  onContextMenu={(e) => e.preventDefault()}
+                  draggable="false"
+                />
               </div>
               <h3 className="text-xl font-serif font-bold text-[#1a1a1a]">Donate Funds via PayMongo</h3>
               <p className="text-xs text-[#6e6659] mt-1 max-w-sm mx-auto">
@@ -374,7 +396,6 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
                   </>
                 ) : (
                   <>
-                    <Heart className="w-4 h-4" />
                     <span>Proceed with PayMongo • ₱{amt.toLocaleString()}</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </>
@@ -400,8 +421,14 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
         {activeTab === 'machinery' && !machineDone && (
           <div>
             <div className="text-center mb-5">
-              <div className="w-10 h-10 rounded-xl bg-[#e5efe9] flex items-center justify-center mx-auto mb-2.5">
-                <Tractor className="w-5 h-5 text-[#3d6b4f]" />
+              <div className="w-14 h-14 rounded-xl bg-[#faf7f1] border border-[#e0dbd2] flex items-center justify-center mx-auto mb-2.5 p-2 shadow-xs">
+                <img
+                  src="/logo-new.png"
+                  alt="PHILIPPEN Logo"
+                  className="w-full h-full object-contain mix-blend-multiply"
+                  onContextMenu={(e) => e.preventDefault()}
+                  draggable="false"
+                />
               </div>
               <h3 className="text-xl font-serif font-bold text-[#1a1a1a]">Donate Farm Machinery & Tools</h3>
               <p className="text-xs text-[#6e6659] mt-1 max-w-sm mx-auto">
