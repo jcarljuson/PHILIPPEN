@@ -9,8 +9,8 @@ export const catalogItems = [
     tier: 'Major Sponsorship / CSR Match',
     icon: 'Tractor',
     goalAmount: 380000,
-    fundedAmount: 265000,
-    unitLabel: '4 of 6 units funded',
+    fundedAmount: 0,
+    unitLabel: '0 of 6 units sponsored',
   },
   {
     id: 'disc-plows-furrowers',
@@ -21,8 +21,8 @@ export const catalogItems = [
     tier: 'Equipment Sponsorship',
     icon: 'Wrench',
     goalAmount: 195000,
-    fundedAmount: 130000,
-    unitLabel: '8 of 12 sets funded',
+    fundedAmount: 0,
+    unitLabel: '0 of 12 sets sponsored',
   },
   {
     id: 'field-accessories',
@@ -33,8 +33,8 @@ export const catalogItems = [
     tier: 'Community Support',
     icon: 'Droplets',
     goalAmount: 120000,
-    fundedAmount: 96000,
-    unitLabel: '16 of 20 kits funded',
+    fundedAmount: 0,
+    unitLabel: '0 of 20 kits sponsored',
   },
 
   // ─── Seed & Input Drives ───
@@ -47,8 +47,8 @@ export const catalogItems = [
     tier: 'Seed Drive',
     icon: 'Sprout',
     goalAmount: 160000,
-    fundedAmount: 112000,
-    unitLabel: '140 of 200 packs funded',
+    fundedAmount: 0,
+    unitLabel: '0 of 200 packs sponsored',
   },
   {
     id: 'organic-fertilizers',
@@ -59,7 +59,7 @@ export const catalogItems = [
     tier: 'Input Drive',
     icon: 'Sprout',
     goalAmount: 145000,
-    fundedAmount: 87000,
-    unitLabel: '90 of 150 sacks funded',
+    fundedAmount: 0,
+    unitLabel: '0 of 150 sacks sponsored',
   },
 ];

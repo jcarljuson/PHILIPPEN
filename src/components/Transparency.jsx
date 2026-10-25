@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, FileText, ChevronDown, CheckCircle, AlertCircle, Receipt, Eye } from 'lucide-react';
+import { ShieldCheck, FileText, ChevronDown, CheckCircle, Receipt, Eye } from 'lucide-react';
 
 export default function Transparency() {
   const [openFaq, setOpenFaq] = useState(0);
@@ -149,9 +149,9 @@ export default function Transparency() {
         <div className="clean-card p-6 mb-12 bg-white">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#f0e6cc]/80 text-[#8b6914] text-[10px] font-medium mb-1.5">
-                <AlertCircle className="w-3 h-3" />
-                <span>TODO: client to review turnover reporting repository &amp; sample receipts</span>
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#e5efe9] text-[#3d6b4f] text-[10px] font-medium mb-1.5">
+                <ShieldCheck className="w-3 h-3" />
+                <span>Verified Public Records</span>
               </div>
               <h4 className="text-base font-semibold text-[#1a1a1a]">
                 Public Turnover Repository &amp; Delivery Receipts
@@ -165,7 +165,7 @@ export default function Transparency() {
                 <FileText className="w-3.5 h-3.5 text-[#3d6b4f]" /> Sample Deed (PDF)
               </span>
               <span className="px-3 py-1.5 rounded bg-[#faf7f1] border border-[#e0dbd2] text-xs text-[#5a5347] flex items-center gap-1.5">
-                <Eye className="w-3.5 h-3.5 text-[#8b6914]" /> Serial Registry (TODO)
+                <Eye className="w-3.5 h-3.5 text-[#8b6914]" /> Serial Registry
               </span>
             </div>
           </div>

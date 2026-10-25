@@ -1,6 +1,6 @@
 import React from 'react';
 import { catalogItems } from '../data/catalog';
-import { Tractor, Wrench, Droplets, Sprout, ArrowRight, Info } from 'lucide-react';
+import { Tractor, Wrench, Droplets, Sprout, ArrowRight } from 'lucide-react';
 
 export default function EquipmentPool({ onSelectItem }) {
   const equipmentItems = catalogItems.filter((i) => i.category === 'equipment');
@@ -35,9 +35,8 @@ export default function EquipmentPool({ onSelectItem }) {
               <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-[#f0e6cc]/80 text-[#8b6914] border border-[#e0dbd2]">
                 {item.tier}
               </span>
-              <span className="inline-flex items-center gap-1 text-[10px] text-[#8a8078]">
-                <Info className="w-3 h-3 text-[#8b6914]" />
-                Sample figures
+              <span className="text-[10px] text-[#3d6b4f] font-medium tracking-wide">
+                Open for Sponsorship
               </span>
             </div>
           </div>

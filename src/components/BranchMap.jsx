@@ -67,7 +67,10 @@ export default function BranchMap() {
           <div className="lg:col-span-7 space-y-5">
             <div className="w-full h-[380px] rounded-lg overflow-hidden border border-[#e0dbd2] shadow-sm">
               <MapContainer center={sel.coords} zoom={6} scrollWheelZoom={false} className="w-full h-full">
-                <TileLayer attribution='&copy; OpenStreetMap' url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
                 <MapFlyTo coords={sel.coords} />
                 {orgData.branches.map((b) => (
                   <Marker key={b.id} position={b.coords} icon={createIcon(b.isHQ)} eventHandlers={{ click: () => setSel(b) }}>
