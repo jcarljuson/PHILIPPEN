@@ -31,11 +31,14 @@ export default function Navbar({ onOpenDonation, onOpenPartner }) {
     }
   };
 
+  const isHomePage = location.pathname === '/';
+  const showSolidNav = scrolled || !isHomePage;
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        scrolled
-          ? 'py-2.5 bg-[#f5f0e8]/95 backdrop-blur-sm border-b border-[#d4cfc4]/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-200 ${
+        showSolidNav
+          ? 'py-2.5 bg-[#f5f0e8]/95 backdrop-blur-md border-b border-[#d4cfc4]/70 shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
           : 'py-3.5 bg-transparent'
       }`}
     >

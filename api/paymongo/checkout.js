@@ -11,8 +11,15 @@ export default async function handler(req, res) {
     const { amount, donorName, donorEmail, donorPhone, paymentMethod = 'all' } = req.body || {};
 
     const numericAmount = parseFloat(amount);
-    if (!numericAmount || numericAmount < 20) {
-      return res.status(400).json({ error: 'Minimum donation amount is ₱20.' });
+    if (!numericAmount || numericAmount <= 0) {
+      return res.status(400).json({ error: 'Please enter a donation amount greater than ₱0.' });
+    }
+
+    // PayMongo gateway processing minimum for online checkout sessions
+    if (secretKey && secretKey.startsWith('sk_') && numericAmount < 20) {
+      return res.status(400).json({
+        error: 'PayMongo gateway processing requires at least ₱20.00 for payment links. For smaller contributions, direct GCash/bank transfer is available.'
+      });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

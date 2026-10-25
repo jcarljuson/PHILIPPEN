@@ -110,7 +110,7 @@ export default function HomePage({ onOpenDonation, onOpenCharter }) {
             Support Indigenous Livelihoods Today
           </h3>
           <p className="text-sm text-[#5a5347] mb-7 max-w-xl mx-auto leading-relaxed">
-            Whether sponsoring a power tiller, donating non-GMO seeds, or contributing via GCash &amp; Maya, 100% of your support directly reaches verified ancestral farming communities.
+            Whether sponsoring a power tiller, donating non-GMO seeds, or contributing via GCash &amp; Maya — with no minimum amount required — 100% of your support directly reaches verified ancestral farming communities.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button

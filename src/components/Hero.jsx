@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart, Tractor, ArrowRight, ArrowDown } from 'lucide-react';
 
 export default function Hero({ onOpenDonation, onOpenPartner }) {
@@ -44,20 +45,21 @@ export default function Hero({ onOpenDonation, onOpenPartner }) {
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center gap-3 mb-10">
-            <a
-              href="#equipment-pool"
+            <button
+              type="button"
+              onClick={() => onOpenDonation && onOpenDonation('money')}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-xs sm:text-sm font-medium text-white bg-[#3d6b4f] hover:bg-[#2f5a40] transition-colors shadow-xs"
             >
               <Tractor className="w-4 h-4" />
               <span>Sponsor Farm Equipment</span>
-            </a>
-            <a
-              href="#how-it-works"
+            </button>
+            <Link
+              to="/equipment"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-xs sm:text-sm font-normal text-[#1a1a1a] bg-white/90 border border-[#d4cfc4] hover:bg-white transition-colors shadow-xs"
             >
               <span>Explore Active Projects</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#5a5347]" />
-            </a>
+            </Link>
             <button
               type="button"
               onClick={onOpenPartner || onOpenDonation}

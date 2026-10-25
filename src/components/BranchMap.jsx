@@ -65,7 +65,7 @@ export default function BranchMap() {
 
           {/* Map + Detail */}
           <div className="lg:col-span-7 space-y-5">
-            <div className="w-full h-[380px] rounded-lg overflow-hidden border border-[#e0dbd2] shadow-sm">
+            <div className="w-full h-[380px] rounded-lg overflow-hidden border border-[#e0dbd2] shadow-sm relative z-0 isolate">
               <MapContainer center={sel.coords} zoom={6} scrollWheelZoom={false} className="w-full h-full">
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

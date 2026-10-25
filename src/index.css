@@ -54,6 +54,15 @@
   border-radius: 0.5rem;
   background: #e8e3d9 !important;
   font-family: 'Inter', system-ui, sans-serif !important;
+  z-index: 1 !important;
+  isolation: isolate;
+}
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 20 !important;
 }
 .leaflet-popup-content-wrapper {
   background: #fff !important; color: #1a1a1a !important;

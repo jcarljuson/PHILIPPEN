@@ -62,8 +62,8 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
     e.preventDefault();
     setError('');
 
-    if (amt < 20) {
-      setError('Minimum donation amount is ₱20.');
+    if (amt <= 0) {
+      setError('Please enter a donation amount greater than ₱0.');
       return;
     }
 
@@ -261,6 +261,10 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
               <p className="text-xs text-[#6e6659] mt-1 max-w-sm mx-auto">
                 Securely contribute funds via GCash, Maya, or Card for shared tools, seeds, and soil conditioning.
               </p>
+              <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#e5efe9] border border-[#c4ddd0] text-[#2f5a40] text-xs font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#3d6b4f] animate-pulse" />
+                <span>No minimum amount required • Every peso counts</span>
+              </div>
             </div>
 
             {error && (
@@ -273,9 +277,14 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
             <form onSubmit={handlePayMongoSubmit} className="space-y-4">
               {/* Amount Selection */}
               <div>
-                <label className="block text-[11px] uppercase tracking-wider text-[#5a5347] font-semibold mb-2">
-                  Select Amount (PHP)
-                </label>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="block text-[11px] uppercase tracking-wider text-[#5a5347] font-semibold">
+                    Select Amount (PHP)
+                  </label>
+                  <span className="text-[10px] text-[#3d6b4f] font-semibold bg-[#e5efe9] px-2 py-0.5 rounded-full border border-[#c4ddd0]">
+                    No Minimum Amount
+                  </span>
+                </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                   {orgData.donationTiers.map((t) => (
                     <button
@@ -299,13 +308,18 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
                   <span className="absolute left-3.5 top-2 text-[#8a8078] text-sm font-medium">₱</span>
                   <input
                     type="number"
-                    min="20"
-                    placeholder="Enter custom amount (e.g. 2500)"
+                    min="1"
+                    step="any"
+                    placeholder="Enter any custom amount — No minimum (e.g. 100)"
                     value={custom}
                     onChange={(e) => setCustom(e.target.value)}
                     className="w-full pl-8 pr-3 py-2 rounded-lg bg-[#faf7f1] border border-[#e0dbd2] text-sm text-[#1a1a1a] placeholder-[#a89f91] focus:outline-none focus:border-[#3d6b4f] focus:bg-white"
                   />
                 </div>
+                <p className="text-[10px] text-[#8a8078] mt-1.5 flex items-center gap-1">
+                  <span>💡</span>
+                  <span>No minimum amount required. Give whatever you can to support indigenous farming cooperatives.</span>
+                </p>
               </div>
 
               {/* Direct Impact Callout */}
