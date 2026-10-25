@@ -23,6 +23,7 @@ export default function App() {
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
   const [selectedCatalogItem, setSelectedCatalogItem] = useState('');
   const [donationModalOpen, setDonationModalOpen] = useState(false);
+  const [donationTab, setDonationTab] = useState('money'); // 'money' | 'machinery'
   const [charterModalOpen, setCharterModalOpen] = useState(false);
 
   useEffect(() => {
@@ -41,6 +42,11 @@ export default function App() {
     return () => lenis.destroy();
   }, []);
 
+  const handleOpenDonation = (tab = 'money') => {
+    setDonationTab(typeof tab === 'string' ? tab : 'money');
+    setDonationModalOpen(true);
+  };
+
   const handleOpenPartnerModal = (itemTitle = '') => {
     setSelectedCatalogItem(itemTitle);
     setPartnerModalOpen(true);
@@ -56,14 +62,14 @@ export default function App() {
       <BaybayinBackground />
       
       <Navbar
-        onOpenDonation={() => setDonationModalOpen(true)}
-        onOpenPartner={() => handleOpenPartnerModal()}
+        onOpenDonation={() => handleOpenDonation('money')}
+        onOpenPartner={() => handleOpenDonation('machinery')}
       />
 
       <main className="flex-1 relative">
         <Hero
-          onOpenDonation={() => setDonationModalOpen(true)}
-          onOpenPartner={() => handleOpenPartnerModal()}
+          onOpenDonation={() => handleOpenDonation('money')}
+          onOpenPartner={() => handleOpenDonation('machinery')}
         />
         <About onOpenCharter={() => setCharterModalOpen(true)} />
         
@@ -81,12 +87,12 @@ export default function App() {
         <EventGallery />
 
         {/* Lead Capture & Sponsorship Section */}
-        <PartnerSection />
+        <PartnerSection onOpenPartner={() => handleOpenPartnerModal()} />
       </main>
 
       <Footer
-        onOpenDonation={() => setDonationModalOpen(true)}
-        onOpenPartner={() => handleOpenPartnerModal()}
+        onOpenDonation={() => handleOpenDonation('money')}
+        onOpenPartner={() => handleOpenDonation('machinery')}
       />
 
       {/* Equipment & In-Kind Lead Capture Modal */}
@@ -97,9 +103,11 @@ export default function App() {
         selectedItem={selectedCatalogItem}
       />
 
-      {/* Individual Donation Modal */}
+      {/* Contribution & Donation Modal (PayMongo Money + Machinery In-Kind) */}
       <DonationPortal
+        key={`${donationModalOpen}-${donationTab}`}
         isOpen={donationModalOpen}
+        initialTab={donationTab}
         onClose={() => setDonationModalOpen(false)}
       />
 
