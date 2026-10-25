@@ -41,8 +41,8 @@ export default function Navbar({ onOpenDonation, onOpenPartner }) {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo & Tagline */}
-          <a href="#" className="flex items-center gap-3">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-2.5">
             <img
               src="/logo-new.png"
               alt="PHILIPPEN Logo"
@@ -50,9 +50,6 @@ export default function Navbar({ onOpenDonation, onOpenPartner }) {
               onContextMenu={(e) => e.preventDefault()}
               draggable="false"
             />
-            <span className="hidden xl:block text-[11px] text-[#5a5347] max-w-[210px] leading-tight border-l border-[#d4cfc4] pl-3">
-              Direct Agricultural Support for Indigenous Communities
-            </span>
           </a>
 
           {/* Desktop Links */}

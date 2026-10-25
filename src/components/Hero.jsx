@@ -20,21 +20,26 @@ export default function Hero({ onOpenDonation, onOpenPartner }) {
         <div className="max-w-2xl">
           
           {/* Label */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f0e6cc]/80 border border-[#e0dbd2] text-[11px] uppercase tracking-[0.15em] text-[#8b6914] font-medium mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#3d6b4f]" />
-            <span>Direct Agricultural Support Initiative</span>
-          </div>
+          <p className="text-[11px] uppercase tracking-[0.15em] text-[#8b6914] font-medium mb-5">
+            Philippines International Philanthropy for People & Environment
+          </p>
 
           {/* Heading */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[#1a1a1a] leading-[1.15] mb-5">
-            Mechanizing Ancestral Lands,
+          <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-semibold tracking-tight text-[#1a1a1a] leading-[1.1] mb-5">
+            Defending ancestral lands.
             <br />
-            <span className="text-[#3d6b4f]">Securing Indigenous Livelihoods.</span>
+            <span className="text-[#3d6b4f]">Empowering lives.</span>
           </h1>
 
-          {/* Description */}
-          <p className="text-sm sm:text-base text-[#5a5347] leading-relaxed mb-6 max-w-xl">
-            Eliminating red tape to deliver hand tractors, tillers, climate-resilient seeds, and organic fertilizers directly to indigenous farming communities.
+          {/* Motto & Subtitle */}
+          <div className="mb-4 max-w-xl">
+            <p className="text-[15px] font-medium text-[#1a1a1a] leading-relaxed">
+              "Dugtungan, tulungan, malasakitan at bayanihan sa kapakanan ng bawat mamamayan, kapwa at kalikasan"
+            </p>
+          </div>
+
+          <p className="text-xs text-[#8a8078] tracking-wide mb-8">
+            Serving indigenous communities for over 14 years · Est. 2012
           </p>
 
           {/* CTAs */}
