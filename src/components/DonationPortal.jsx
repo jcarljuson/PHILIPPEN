@@ -68,13 +68,8 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
       return;
     }
 
-    if (!donorName.trim()) {
-      setError('Please provide your name or organization.');
-      return;
-    }
-
-    if (!donorEmail.trim() || !donorEmail.includes('@')) {
-      setError('Please provide a valid email address for your official receipt.');
+    if (donorEmail.trim() && !donorEmail.includes('@')) {
+      setError('Please provide a valid email address format.');
       return;
     }
 
@@ -86,8 +81,8 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           amount: amt,
-          donorName: donorName.trim(),
-          donorEmail: donorEmail.trim(),
+          donorName: donorName.trim() || 'Anonymous Supporter',
+          donorEmail: donorEmail.trim() || 'donor@philippen.org',
           donorPhone: donorPhone.trim() || '09000000000',
           paymentMethod: pm,
         }),
@@ -335,22 +330,23 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
 
               {/* Donor Contact Details for Receipt */}
               <div className="space-y-2 pt-1 border-t border-[#ede7dd]">
-                <p className="text-[11px] uppercase tracking-wider text-[#5a5347] font-semibold">
-                  Donor Contact Information
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="text-[11px] uppercase tracking-wider text-[#5a5347] font-semibold">
+                    Donor Information
+                  </p>
+                  <span className="text-[10px] text-[#8a8078] italic">Optional</span>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <input
                     type="text"
-                    required
-                    placeholder="Full Name / Org *"
+                    placeholder="Full Name / Org (Optional)"
                     value={donorName}
                     onChange={(e) => setDonorName(e.target.value)}
                     className="w-full px-3 py-2 rounded-lg bg-[#faf7f1] border border-[#e0dbd2] text-xs text-[#1a1a1a] focus:outline-none focus:border-[#3d6b4f] focus:bg-white"
                   />
                   <input
                     type="email"
-                    required
-                    placeholder="Email Address (for receipt) *"
+                    placeholder="Email Address (Optional - for receipt)"
                     value={donorEmail}
                     onChange={(e) => setDonorEmail(e.target.value)}
                     className="w-full px-3 py-2 rounded-lg bg-[#faf7f1] border border-[#e0dbd2] text-xs text-[#1a1a1a] focus:outline-none focus:border-[#3d6b4f] focus:bg-white"
@@ -358,7 +354,7 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
                 </div>
                 <input
                   type="tel"
-                  placeholder="Mobile Number (e.g. 09171234567 for GCash/SMS notifications)"
+                  placeholder="Mobile Number (Optional - for GCash / SMS)"
                   value={donorPhone}
                   onChange={(e) => setDonorPhone(e.target.value)}
                   className="w-full px-3 py-2 rounded-lg bg-[#faf7f1] border border-[#e0dbd2] text-xs text-[#1a1a1a] focus:outline-none focus:border-[#3d6b4f] focus:bg-white"
@@ -574,7 +570,7 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
             </p>
             <p className="text-sm text-[#5a5347] mb-5 max-w-sm mx-auto leading-relaxed">
               Your pledge of <span className="font-bold text-[#3d6b4f]">₱{amt.toLocaleString()}</span> from{' '}
-              <span className="font-medium text-[#1a1a1a]">{donorName}</span> has been registered.
+              <span className="font-medium text-[#1a1a1a]">{donorName.trim() || 'an anonymous supporter'}</span> has been registered.
             </p>
 
             <div className="p-3.5 rounded-lg bg-[#faf7f1] border border-[#e0dbd2] text-left text-xs text-[#5a5347] space-y-1 mb-6">
@@ -583,7 +579,7 @@ export default function DonationPortal({ isOpen, onClose, initialTab = 'money' }
                 Integration Status
               </p>
               <p className="text-[11px] text-[#6e6659]">
-                Method: <strong className="uppercase">{pm}</strong> • Email: {donorEmail}
+                Method: <strong className="uppercase">{pm}</strong> • Contact: {donorEmail.trim() || 'Anonymous'}
               </p>
               <p className="text-[11px] text-[#8a8078] pt-1 border-t border-[#ede7dd]">
                 To activate live checkout with automatic redirection, set <code className="bg-white px-1 py-0.5 rounded border border-[#e0dbd2]">PAYMONGO_SECRET_KEY=sk_...</code> in your <code className="bg-white px-1 py-0.5 rounded border border-[#e0dbd2]">.env</code> file.

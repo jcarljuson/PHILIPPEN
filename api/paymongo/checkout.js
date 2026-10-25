@@ -15,14 +15,14 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Minimum donation amount is ₱20.' });
     }
 
-    if (!donorName || typeof donorName !== 'string' || donorName.trim().length < 2) {
-      return res.status(400).json({ error: 'Please provide a valid donor name.' });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (donorEmail && donorEmail.trim() && !emailRegex.test(donorEmail.trim())) {
+      return res.status(400).json({ error: 'Please provide a valid email format for your receipt.' });
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!donorEmail || !emailRegex.test(donorEmail.trim())) {
-      return res.status(400).json({ error: 'Please provide a valid email for the receipt.' });
-    }
+    const resolvedName = (donorName && typeof donorName === 'string' && donorName.trim()) ? donorName.trim() : 'Anonymous Supporter';
+    const resolvedEmail = (donorEmail && typeof donorEmail === 'string' && emailRegex.test(donorEmail.trim())) ? donorEmail.trim() : 'donor@philippen.org';
+    const resolvedPhone = (donorPhone && typeof donorPhone === 'string' && donorPhone.trim()) ? donorPhone.trim() : '09000000000';
 
     const secretKey = process.env.PAYMONGO_SECRET_KEY;
 
@@ -46,14 +46,14 @@ export default async function handler(req, res) {
         data: {
           attributes: {
             billing: {
-              name: donorName.trim(),
-              email: donorEmail.trim(),
-              phone: donorPhone ? donorPhone.trim() : '09000000000',
+              name: resolvedName,
+              email: resolvedEmail,
+              phone: resolvedPhone,
             },
-            send_email_receipt: true,
+            send_email_receipt: !!(donorEmail && donorEmail.trim()),
             show_description: true,
             show_line_items: true,
-            description: `Philippen Donation - ${donorName.trim()}`,
+            description: `Philippen Donation - ${resolvedName}`,
             line_items: [
               {
                 currency: 'PHP',
