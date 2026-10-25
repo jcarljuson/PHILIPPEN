@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Tractor, ArrowRight, ShieldCheck, Users, LandPlot, ArrowDown } from 'lucide-react';
+import { Heart, Tractor, ArrowRight, ArrowDown } from 'lucide-react';
 
 export default function Hero({ onOpenDonation, onOpenPartner }) {
   return (
@@ -66,39 +66,6 @@ export default function Hero({ onOpenDonation, onOpenPartner }) {
               <Heart className="w-3.5 h-3.5" />
               <span>Partner With Us</span>
             </button>
-          </div>
-
-          {/* 3-Item Stats Bar in clean-card styling */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
-            <div className="clean-card p-3.5 bg-white/95">
-              <div className="flex items-center gap-2 text-[#3d6b4f] font-semibold text-xs mb-1">
-                <ShieldCheck className="w-4 h-4" />
-                <span>100% Direct Delivery</span>
-              </div>
-              <p className="text-[11px] text-[#5a5347] leading-tight">
-                No administrative deduction on donated hardware.
-              </p>
-            </div>
-
-            <div className="clean-card p-3.5 bg-white/95">
-              <div className="flex items-center gap-2 text-[#8b6914] font-semibold text-xs mb-1">
-                <Users className="w-4 h-4" />
-                <span>Community-Pooled</span>
-              </div>
-              <p className="text-[11px] text-[#5a5347] leading-tight">
-                Shared equipment maintained locally under tribal council oversight.
-              </p>
-            </div>
-
-            <div className="clean-card p-3.5 bg-white/95">
-              <div className="flex items-center gap-2 text-[#3d6b4f] font-semibold text-xs mb-1">
-                <LandPlot className="w-4 h-4" />
-                <span>Ancestral Domain Focus</span>
-              </div>
-              <p className="text-[11px] text-[#5a5347] leading-tight">
-                Traditional stewardship backed by modern productivity.
-              </p>
-            </div>
           </div>
 
           {/* Founders subtitle */}
