@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, HeartHandshake, Tractor } from 'lucide-react';
 
 export default function Navbar({ onOpenDonation, onOpenPartner }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,14 +16,11 @@ export default function Navbar({ onOpenDonation, onOpenPartner }) {
   }, []);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Equipment Pool', href: '#equipment-pool', highlight: true },
-    { name: 'Seed Drives', href: '#seed-drives' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Transparency', href: '#transparency' },
-    { name: 'Regional Map', href: '#branch-map' },
-    { name: 'Field Action', href: '#action' },
-    { name: 'Founders', href: '#founders' },
+    { name: 'Home', path: '/' },
+    { name: 'Equipment Pool', path: '/equipment', highlight: true },
+    { name: 'About & Founders', path: '/about' },
+    { name: 'Regional Map', path: '/locations' },
+    { name: 'Transparency & CSR', path: '/transparency' },
   ];
 
   const handlePartnerClick = () => {
@@ -33,16 +32,18 @@ export default function Navbar({ onOpenDonation, onOpenPartner }) {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-      scrolled
-        ? 'py-2.5 bg-[#f5f0e8]/95 backdrop-blur-sm border-b border-[#d4cfc4]/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
-        : 'py-3.5 bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? 'py-2.5 bg-[#f5f0e8]/95 backdrop-blur-sm border-b border-[#d4cfc4]/60 shadow-[0_1px_3px_rgba(0,0,0,0.04)]'
+          : 'py-3.5 bg-transparent'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5">
+          <Link to="/" className="flex items-center gap-2.5">
             <img
               src="/logo-new.png"
               alt="PHILIPPEN Logo"
@@ -50,23 +51,28 @@ export default function Navbar({ onOpenDonation, onOpenPartner }) {
               onContextMenu={(e) => e.preventDefault()}
               draggable="false"
             />
-          </a>
+          </Link>
 
           {/* Desktop Links */}
-          <div className="hidden lg:flex items-center gap-0.5">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`px-3 py-1.5 rounded-md text-[13px] transition-colors ${
-                  link.highlight
-                    ? 'font-medium text-[#3d6b4f] bg-[#e5efe9]/80 border border-[#3d6b4f]/20'
-                    : 'font-normal text-[#5a5347] hover:text-[#1a1a1a] hover:bg-[#ebe6dc]/50'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`px-3 py-1.5 rounded-md text-[13px] transition-colors ${
+                    isActive
+                      ? 'font-semibold text-[#3d6b4f] bg-[#e5efe9]'
+                      : link.highlight
+                      ? 'font-medium text-[#3d6b4f] bg-[#e5efe9]/60 hover:bg-[#e5efe9]'
+                      : 'font-normal text-[#5a5347] hover:text-[#1a1a1a] hover:bg-[#ebe6dc]/50'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Action Button */}
@@ -104,20 +110,23 @@ export default function Navbar({ onOpenDonation, onOpenPartner }) {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#f5f0e8] border-b border-[#d4cfc4] px-5 py-4 shadow-lg space-y-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3.5 py-2 rounded-md text-sm ${
-                link.highlight
-                  ? 'font-medium text-[#3d6b4f] bg-[#e5efe9]'
-                  : 'text-[#5a5347] hover:text-[#1a1a1a] hover:bg-[#ebe6dc]/50'
-              }`}
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-3.5 py-2 rounded-md text-sm ${
+                  isActive
+                    ? 'font-semibold text-[#3d6b4f] bg-[#e5efe9]'
+                    : 'text-[#5a5347] hover:text-[#1a1a1a] hover:bg-[#ebe6dc]/50'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
           <div className="pt-3 border-t border-[#d4cfc4]">
             <button
               onClick={() => {

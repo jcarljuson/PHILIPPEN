@@ -1,23 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Lenis from 'lenis';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import EquipmentPool from './components/EquipmentPool';
-import WhyThisModelWorks from './components/WhyThisModelWorks';
-import HowItWorks from './components/HowItWorks';
-import Transparency from './components/Transparency';
-import Pillars from './components/Pillars';
-import BranchMap from './components/BranchMap';
-import Licenses from './components/Licenses';
-import Founders from './components/Founders';
-import EventGallery from './components/EventGallery';
-import PartnerSection from './components/PartnerSection';
-import PartnerModal from './components/PartnerModal';
-import DonationPortal from './components/DonationPortal';
 import Footer from './components/Footer';
 import BaybayinBackground from './components/BaybayinBackground';
+import PartnerModal from './components/PartnerModal';
+import DonationPortal from './components/DonationPortal';
 import CharterModal from './components/CharterModal';
+import ScrollToTop from './components/ScrollToTop';
+
+// Pages
+import HomePage from './pages/HomePage';
+import EquipmentPage from './pages/EquipmentPage';
+import AboutPage from './pages/AboutPage';
+import LocationsPage from './pages/LocationsPage';
+import TransparencyPage from './pages/TransparencyPage';
 
 export default function App() {
   const [partnerModalOpen, setPartnerModalOpen] = useState(false);
@@ -75,64 +72,96 @@ export default function App() {
   };
 
   return (
-    <div className="baybayin-bg min-h-screen flex flex-col overflow-x-hidden">
-      <BaybayinBackground />
-      
-      <Navbar
-        onOpenDonation={() => handleOpenDonation('money')}
-        onOpenPartner={() => handleOpenDonation('machinery')}
-      />
-
-      <main className="flex-1 relative">
-        <Hero
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="baybayin-bg min-h-screen flex flex-col overflow-x-hidden">
+        <BaybayinBackground />
+        
+        <Navbar
           onOpenDonation={() => handleOpenDonation('money')}
           onOpenPartner={() => handleOpenDonation('machinery')}
         />
-        <About onOpenCharter={() => setCharterModalOpen(true)} />
-        
-        {/* New Agricultural Support Features */}
-        <EquipmentPool onSelectItem={handleSelectCatalogItem} />
-        <WhyThisModelWorks />
-        <HowItWorks />
-        <Transparency />
 
-        {/* Existing Loved Sections: Pillars, Map, Photos, Licenses, Founders, Events */}
-        <Pillars />
-        <BranchMap />
-        <Licenses />
-        <Founders />
-        <EventGallery />
+        <main className="flex-1 relative">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <HomePage
+                  onOpenDonation={handleOpenDonation}
+                  onOpenCharter={() => setCharterModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/equipment"
+              element={
+                <EquipmentPage
+                  onSelectItem={handleSelectCatalogItem}
+                  onOpenDonation={handleOpenDonation}
+                />
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <AboutPage
+                  onOpenCharter={() => setCharterModalOpen(true)}
+                />
+              }
+            />
+            <Route
+              path="/locations"
+              element={<LocationsPage />}
+            />
+            <Route
+              path="/transparency"
+              element={
+                <TransparencyPage
+                  onOpenPartner={() => handleOpenPartnerModal()}
+                />
+              }
+            />
+            {/* Fallback route */}
+            <Route
+              path="*"
+              element={
+                <HomePage
+                  onOpenDonation={handleOpenDonation}
+                  onOpenCharter={() => setCharterModalOpen(true)}
+                />
+              }
+            />
+          </Routes>
+        </main>
 
-        {/* Lead Capture & Sponsorship Section */}
-        <PartnerSection onOpenPartner={() => handleOpenPartnerModal()} />
-      </main>
+        <Footer
+          onOpenDonation={() => handleOpenDonation('money')}
+          onOpenPartner={() => handleOpenDonation('machinery')}
+        />
 
-      <Footer
-        onOpenDonation={() => handleOpenDonation('money')}
-        onOpenPartner={() => handleOpenDonation('machinery')}
-      />
+        {/* Equipment & In-Kind Lead Capture Modal */}
+        <PartnerModal
+          key={selectedCatalogItem || 'default'}
+          isOpen={partnerModalOpen}
+          onClose={() => setPartnerModalOpen(false)}
+          selectedItem={selectedCatalogItem}
+        />
 
-      {/* Equipment & In-Kind Lead Capture Modal */}
-      <PartnerModal
-        key={selectedCatalogItem || 'default'}
-        isOpen={partnerModalOpen}
-        onClose={() => setPartnerModalOpen(false)}
-        selectedItem={selectedCatalogItem}
-      />
+        {/* Contribution & Donation Modal (PayMongo Money + Machinery In-Kind) */}
+        <DonationPortal
+          key={`${donationModalOpen}-${donationTab}`}
+          isOpen={donationModalOpen}
+          initialTab={donationTab}
+          onClose={() => setDonationModalOpen(false)}
+        />
 
-      {/* Contribution & Donation Modal (PayMongo Money + Machinery In-Kind) */}
-      <DonationPortal
-        key={`${donationModalOpen}-${donationTab}`}
-        isOpen={donationModalOpen}
-        initialTab={donationTab}
-        onClose={() => setDonationModalOpen(false)}
-      />
-
-      {/* Charter Modal */}
-      <CharterModal
-        isOpen={charterModalOpen}
-        onClose={() => setCharterModalOpen(false)}
-      />
-    </div>
+        {/* Charter Modal */}
+        <CharterModal
+          isOpen={charterModalOpen}
+          onClose={() => setCharterModalOpen(false)}
+        />
+      </div>
+    </BrowserRouter>
   );
 }
